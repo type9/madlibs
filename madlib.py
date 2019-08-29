@@ -18,20 +18,47 @@ letterFromCamp_story = [
                         ' more when you ',
                         ' back.'
                         ]
-ltterFromCamp_words = [
-                        ['RELATIVE', 'WORD NOT SUBMITTED']
-                        ['ADJECTIVE', 'WORD NOT SUBMITTED']
-                        ['ADJECTIVE', 'WORD NOT SUBMITTED']
-                        ['ADJECTIVE', 'WORD NOT SUBMITTED']
-                        ['NAME OF PERSON IN ROOM', 'WORD NOT SUBMITTED']
-                        ['ADJECTIVE', 'WORD NOT SUBMITTED']
-                        ['ADJECTIVE', 'WORD NOT SUBMITTED']
-                        ['VERB ENDING IN "ED"', 'WORD NOT SUBMITTED']
-                        ['BODY PART', 'WORD NOT SUBMITTED']
-                        ['VERB ENDING IN "ING"', 'WORD NOT SUBMITTED']
-                        ['NOUN (PLURAL)', 'WORD NOT SUBMITTED']
-                        ['NOUN', 'WORD NOT SUBMITTED']
-                        ['ADVERB', 'WORD NOT SUBMITTED']
-                        ['VERB', 'WORD NOT SUBMITTED']
-                        ['VERB', 'WORD NOT SUBMITTED']
-]
+letterFromCamp_words = [
+                        'RELATIVE',
+                        'ADJECTIVE',
+                        'ADJECTIVE',
+                        'ADJECTIVE',
+                        'NAME OF PERSON IN ROOM',
+                        'ADJECTIVE',
+                        'ADJECTIVE',
+                        'VERB ENDING IN "ED"',
+                        'BODY PART',
+                        'VERB ENDING IN "ING"',
+                        'NOUN (PLURAL)',
+                        'NOUN',
+                        'ADVERB',
+                        'VERB',
+                        'VERB',
+                        ]
+
+
+# Letter from Camp
+def playLetterFromCamp():
+
+    def getUserInput():
+        for x in letterFromCamp_words:
+            print("\nProvide one " + letterFromCamp_words[x] + ": ")
+            userInput = raw_input()
+            letterFromCamp_userInput = []
+            letterFromCamp_userInput.append(userInput)
+            return letterFromCamp_userInput
+
+    def printStory(userInput):
+        print("\nWord input done. Generating story...\n\n")
+        for x in letterFromCamp_story:
+            print(letterFromCamp_story[int(x)]
+            # Stops from printing an extra word after the last line of story
+            if x != len(letterFromCamp_story):
+                print(userInput[x])
+
+    # Executes both methods
+    printStory(getUserInput())
+
+
+# MAIN
+playLetterFromCamp()
