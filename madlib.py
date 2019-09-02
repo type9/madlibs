@@ -1,8 +1,13 @@
+"""
+This code generates a madlibs story from user input.
+CREDIT to https://www.madtakes.com/libs/187.html for story.
+by Gabriel Lee.
+"""
 
-# CREDIT to https://www.madtakes.com/libs/187.html for story
+# Blocks of story
 letterFromCamp_story = [
                         'Dear ',
-                        'I am having a(n) ',
+                        '\nI am having a(n) ',
                         ' time at camp. The counselor is ',
                         ' and the food is ',
                         '.I met ',
@@ -15,9 +20,11 @@ letterFromCamp_story = [
                         ' like everybody else. I need more ',
                         ' and a ',
                         ' sharpener, so please ',
+                        ' ',
                         ' more when you ',
                         ' back.'
                         ]
+# Required words for story
 letterFromCamp_words = [
                         'RELATIVE',
                         'ADJECTIVE',
@@ -37,27 +44,34 @@ letterFromCamp_words = [
                         ]
 
 
-# Letter from Camp
+# Letter from Camp madlibs execution code
 def playLetterFromCamp():
 
+    # gets words from user. returns in a list.
     def getUserInput():
-        for x in letterFromCamp_words:
-            print("\nProvide one " + letterFromCamp_words[x] + ": ")
-            userInput = raw_input()
-            letterFromCamp_userInput = []
+        letterFromCamp_userInput = []
+        for i in range(len(letterFromCamp_words)):
+            userInput = input(
+                "Provide one " + letterFromCamp_words[i] + ": "
+            )
+            # creates a list of user inputted words. Entry for every word
+            # required
             letterFromCamp_userInput.append(userInput)
-            return letterFromCamp_userInput
+        return letterFromCamp_userInput
 
+    # prints blocks of story with user inputted words slotted inbetween
     def printStory(userInput):
         print("\nWord input done. Generating story...\n\n")
-        for x in letterFromCamp_story:
-            print(letterFromCamp_story[int(x)]
-            # Stops from printing an extra word after the last line of story
-            if x != len(letterFromCamp_story):
-                print(userInput[x])
+        for i in range(len(letterFromCamp_story)):
+            print(letterFromCamp_story[i], end="")
+            pass
+            # stops from printing an extra word after the last line of story
+            if i != (len(letterFromCamp_story) - 1):
+                print(userInput[i], end="")
 
-    # Executes both methods
+    # prints story from user input
     printStory(getUserInput())
+    print("\n")
 
 
 # MAIN
